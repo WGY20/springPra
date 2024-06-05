@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.wecky.mapper.AdminMapper">
+	<insert id="adminInsert" parameterType="adminDto">
+		INSERT INTO admin(a_id, a_password, a_name, a_phone, a_approval)
+		VALUES (#{adminDto.a_id}, #{adminDto.a_password}, #{adminDto.a_name}, #{adminDto.a_phone}, #{adminDto.a_approval})
+	</insert>
+	
+	<select id="loginConfirm" parameterType="adminDto" resultType="adminDto">
+		SELECT a_id, a_password, a_name, a_phone, a_approval FROM admin
+		WHERE a_id = #{adminDto.a_id} AND a_approval > 0
+	</select>
+	
+	<select id="adminList" parameterType="adminDto" resultType="adminDto">
+		SELECT a_id, a_password, a_name, a_phone, a_approval FROM admin
+	</select>
+	
+	
+</mapper>
