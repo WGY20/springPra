@@ -8,10 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<ul>
-		<li><a href="<c:url value='admin/loginForm'/>"> 로그인</a></li>
-		<li><a href="<c:url value='admin/createAccountForm'/>"> 회원가입</a></li>
-		<li><a href="<c:url value='admin/handlerInterceptor'/>">handlerInterceptor</a></li>
-	</ul>
+	<h2>handlerInterceptor</h2>
+	<a href='<c:url value="/admin/listupAdmin"></c:url>'>
+		ADMIN LIST로 이동하기
+	</a>
 </body>
 </html>

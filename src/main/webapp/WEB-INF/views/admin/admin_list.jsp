@@ -10,6 +10,20 @@
 <body>
 	<jsp:include page="./nav.jsp"></jsp:include>
 	<h2>Admin List!!!</h2> <br>
+	<br>
+	
+	<form action="<c:url value='/admin/searchAdminConfirm'></c:url>"
+	name="search_admin_confirm" method="get">
+		<select id="category" name="category">
+			<option value="None">===Select Category===</option>
+			<option value="Account">Account</option>
+			<option value="Name">Name</option>
+			<option value="Phone">Phone</option>
+		</select>
+		<input type="text" id="keyword" name="keyword" placeholder="Enter Keyword">
+		<input type="submit" value="search">
+	</form>
+	
 	<table border="1">
 		<tr>
 			<th>계정</th>

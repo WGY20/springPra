@@ -17,5 +17,33 @@
 		SELECT a_id, a_password, a_name, a_phone, a_approval FROM admin
 	</select>
 	
+	<update id="updateAdminAccount" parameterType="String">
+		UPDATE admin SET a_approval = 1
+		WHERE a_id = #{id}
+	</update>
+	
+	<update id="updateAdmin" parameterType="adminDto">
+	    UPDATE admin
+	    SET a_name = #{adminDto.a_name},
+	        a_phone = #{adminDto.a_phone}
+	    WHERE a_id = #{adminDto.a_id}
+	</update>
+	
+	
+	<select id="searchKeyword" parameterType="map" resultType="adminDto">
+	    SELECT a_id, a_password, a_name, a_phone, a_approval 
+	    FROM admin
+	    <where>
+	        <if test="category == 'Account'">
+	            a_id LIKE CONCAT('%', #{keyword}, '%')
+	        </if>
+	        <if test="category == 'Name'">
+	            a_name LIKE CONCAT('%', #{keyword}, '%')
+	        </if>
+	        <if test="category == 'Phone'">
+	            a_phone LIKE CONCAT('%', #{keyword}, '%')
+	        </if>
+	    </where>
+	</select>
 	
 </mapper>

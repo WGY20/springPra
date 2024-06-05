@@ -1,6 +1,8 @@
 package kr.co.wecky.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,5 +39,25 @@ public class AdminService {
 	public List<AdminDto> adminList() {
 		return mapper.adminList();
 	}
+
+
+	public int updateAdminAccount(String id) {
+		return mapper.updateAdminAccount(id);
+		
+	}
+
+
+	public void updateAdmin(AdminDto adminDto) {
+		mapper.updateAdmin(adminDto);
+		
+	}
+
+
+	 public List<AdminDto> searchAdmin(String category, String keyword) {
+	        Map<String, Object> params = new HashMap<>();
+	        params.put("category", category);
+	        params.put("keyword", keyword);
+	        return mapper.searchKeyword(params);
+	    }
 
 }

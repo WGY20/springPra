@@ -21,6 +21,14 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/admin/handlerInterceptor"/>
+			<mapping path="/admin/modifyAccountForm"/>
+			<beans:bean class="kr.co.wecky.LoginInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>
+	
 	<context:component-scan base-package="kr.co.wecky" />
 	
 
